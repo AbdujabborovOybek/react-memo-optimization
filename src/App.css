@@ -3,6 +3,8 @@
   padding: 0;
   box-sizing: border-box;
   overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
 
 .App {
@@ -82,4 +84,46 @@
 .login_header > button {
   padding: 5px 10px;
   cursor: pointer;
+}
+
+.lan {
+  position: relative;
+  width: 250px;
+  height: 45px;
+  background: #3333;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  --active: 0;
+}
+
+.lan > button {
+  position: relative;
+  width: calc(100% / 3);
+  height: 100%;
+  border: none;
+  background: transparent;
+  color: #ccc;
+  font-size: 16px;
+  font-weight: 600;
+  z-index: 999;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.lan > button.active {
+  color: #333;
+}
+
+.lan > strong {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  transition: all 0.3s ease;
+  transform: translateX(calc(100% * var(--active) - calc(5px * var(--active))));
+  width: calc(100% / 3);
+  height: 35px;
+  background: #fff;
+  border-radius: 5px;
 }
